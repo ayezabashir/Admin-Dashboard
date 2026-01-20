@@ -39,20 +39,18 @@ const items = [
 const SidebarNavs = ({ open }) => {
   const [activeId, setActiveId] = useState(1);
   return (
-    <div className="mt-5">
-      <ul className="flex flex-col gap-5">
-        {items.map((item) => (
-          <ListItem
-            key={item.id}
-            open={open}
-            icon={item.icon}
-            text={item.text}
-            active={activeId === item.id}
-            onClick={() => setActiveId(item.id)}
-          />
-        ))}
-      </ul>
-    </div>
+    <ul className="flex flex-col gap-5">
+      {items.map((item) => (
+        <ListItem
+          key={item.id}
+          open={open}
+          icon={item.icon}
+          text={item.text}
+          active={activeId === item.id}
+          onClick={() => setActiveId(item.id)}
+        />
+      ))}
+    </ul>
   );
 };
 

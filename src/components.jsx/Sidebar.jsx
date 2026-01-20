@@ -11,7 +11,7 @@ const Sidebar = () => {
       <header
         className={`flex items-center  ${open ? "justify-between" : "justify-center"}`}
       >
-        <h1 className={`${open ? "block" : "hidden"}`}>Dashboard</h1>
+        <h1 className={`${open ? "block" : "hidden"} font-bold text-2xl`}>Dashboard</h1>
         <button
           className="cursor-pointer flex justify-center"
           type="button"
@@ -20,7 +20,7 @@ const Sidebar = () => {
           <FiSidebar />
         </button>
       </header>
-      <main>
+      <main className="mt-10">
         <SidebarNavs open={open} />
       </main>
     </aside>
