@@ -20,7 +20,7 @@ const ListItem = ({ active, open, icon: Icon, text, onClick, subTabs }) => {
             {text}
           </p>
         </div>
-        {subTabs && (
+        {subTabs && open && (
           <div onClick={() => setDropDownOpen(!dropdownopen)}>
             {dropdownopen ? (
               <BiDownArrow className="text-gray-500" />
@@ -32,8 +32,12 @@ const ListItem = ({ active, open, icon: Icon, text, onClick, subTabs }) => {
       </li>
       {subTabs &&
         dropdownopen &&
+        open &&
         subTabs.map((item, index) => (
-          <li key={index} className={`text-gray-500 font-semibold pl-10 mt-3 cursor-pointer text-sm`}>
+          <li
+            key={index}
+            className={`text-gray-500 font-semibold pl-10 mt-3 cursor-pointer text-sm`}
+          >
             {item}
           </li>
         ))}
