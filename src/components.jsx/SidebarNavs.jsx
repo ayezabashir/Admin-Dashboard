@@ -23,6 +23,7 @@ const items = [
     id: 3,
     icon: RiFileList3Line,
     text: "Orders",
+    subTabs: ["All Orders", "Returns", "Order Tracking"],
   },
   {
     id: 4,
@@ -33,6 +34,7 @@ const items = [
     id: 5,
     icon: RiCustomerService2Line,
     text: "Support",
+    subTabs: ["Help", "Contact", "Complaint"],
   },
 ];
 
@@ -48,6 +50,7 @@ const SidebarNavs = ({ open }) => {
           text={item.text}
           active={activeId === item.id}
           onClick={() => setActiveId(item.id)}
+          subTabs={item.subTabs}
         />
       ))}
     </ul>

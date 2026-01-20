@@ -1,5 +1,5 @@
 import { BiBell, BiMoon, BiSearch, BiShoppingBag } from "react-icons/bi";
-import manimg from "/person.jpg"
+import manimg from "/person.jpg";
 
 const MainHeader = () => {
   return (
@@ -11,24 +11,30 @@ const MainHeader = () => {
           name="search"
           id="search"
         />
-        <BiSearch />
+        <BiSearch className="text-xl" />
       </div>
       <div className="flex items-center gap-5">
         <div>
-            <BiMoon />
+          <BiMoon className="text-xl cursor-pointer" />
         </div>
         <div>
-            <BiBell />
+          <BiBell className="text-xl cursor-pointer" />
         </div>
         <div>
-            <BiShoppingBag />
+          <BiShoppingBag className="text-xl cursor-pointer" />
         </div>
         <div className="flex items-center justify-center gap-3">
-            <img width="30" height="30" className="rounded-full" src={manimg} alt="" />
-            <div className="flex flex-col items-start ">
-                <p className="text-sm font-semibold text-black">Paul Wesley</p>
-                <p className="text-sm text-gray-600">Web Designer</p>
-            </div>
+          <img
+            width="35"
+            height="35"
+            className="rounded-full"
+            src={manimg}
+            alt=""
+          />
+          <div className="flex flex-col items-start ">
+            <p className="text-sm font-semibold text-black">Paul Wesley</p>
+            <p className="text-sm text-gray-600">Web Designer</p>
+          </div>
         </div>
       </div>
     </header>
