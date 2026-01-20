@@ -1,5 +1,5 @@
-import Sidebar from '../components.jsx/Sidebar'
-import Main from '../components.jsx/Main'
+import Sidebar from '../components/Sidebar'
+import Main from '../components/Main'
 
 const HomePage = () => {
   return (
