@@ -62,12 +62,12 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`h-screen bg-white dark:bg-black border-r border-gray-200 dark:border-gray-800
+      className={`h-screen bg-white dark:bg-black border-r border-zinc-200 dark:border-zinc-800
       transition-all duration-300 ease-in-out
       ${open ? "w-64" : "w-20"}`}
     >
       <div className="flex items-center justify-between p-4">
-        <h1 className={`text-xl font-bold text-gray-600 dark:text-gray-300 ${open ? "block" : "hidden"}`}>
+        <h1 className={`text-xl font-bold text-zinc-600 dark:text-zinc-300 ${open ? "block" : "hidden"}`}>
           Dashboard
         </h1>
         <button
@@ -75,7 +75,7 @@ const Sidebar = () => {
             setOpen(!open);
             setOpenDropdown(null);
           }}
-          className="text-xl text-gray-600 dark:text-gray-300"
+          className="text-xl text-zinc-600 dark:text-zinc-300"
         >
           {open ? <RiMenuFoldLine /> : <RiMenuUnfoldLine />}
         </button>
@@ -95,8 +95,8 @@ const Sidebar = () => {
                   className={`flex items-center gap-3 p-3 rounded-xl transition
                   ${
                     isActive
-                      ? "bg-gray-200 dark:bg-gray-800 text-black dark:text-white"
-                      : "text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900"
+                      ? "bg-zinc-200 dark:bg-zinc-800 text-black dark:text-white"
+                      : "text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-900"
                   }`}
                 >
                   <Icon className="text-xl min-w-6" />
@@ -121,8 +121,8 @@ const Sidebar = () => {
                   className={`w-full flex items-center justify-between p-3 rounded-xl transition
                   ${
                     isActive
-                      ? "bg-gray-200 dark:bg-gray-800 text-black dark:text-white"
-                      : "text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900"
+                      ? "bg-zinc-200 dark:bg-zinc-800 text-black dark:text-white"
+                      : "text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-900"
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -159,8 +159,8 @@ const Sidebar = () => {
                         `text-sm px-3 py-2 rounded-lg transition
                           ${
                             isActive
-                              ? "bg-gray-300 dark:bg-gray-700 text-black dark:text-white"
-                              : "text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900"
+                              ? "bg-zinc-300 dark:bg-zinc-800 text-black dark:text-white"
+                              : "text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-900"
                           }`
                       }
                     >
