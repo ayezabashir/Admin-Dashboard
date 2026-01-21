@@ -1,0 +1,206 @@
+{
+    "summary": {
+        "totalProducts": 1525,
+        "totalSales": 10892,
+        "totalIncome": 157342,
+        "totalExpenses": 12453
+    },
+    "salesRevenue": [
+        {
+            "month": "Jan",
+            "oneTime": 10500,
+            "recurring": 25000
+        },
+        {
+            "month": "Feb",
+            "oneTime": 8000,
+            "recurring": 18000
+        },
+        {
+            "month": "Mar",
+            "oneTime": 12000,
+            "recurring": 22000
+        },
+        {
+            "month": "Apr",
+            "oneTime": 6000,
+            "recurring": 25000
+        },
+        {
+            "month": "May",
+            "oneTime": 9000,
+            "recurring": 21000
+        },
+        {
+            "month": "Jun",
+            "oneTime": 7000,
+            "recurring": 17000
+        },
+        {
+            "month": "Jul",
+            "oneTime": 15000,
+            "recurring": 30000
+        },
+        {
+            "month": "Aug",
+            "oneTime": 11000,
+            "recurring": 23000
+        }
+    ],
+    "topCategories": [
+        {
+            "category": "Electronics",
+            "sales": 85000,
+            "percentage": 68
+        },
+        {
+            "category": "Fashion",
+            "sales": 25000,
+            "percentage": 20
+        },
+        {
+            "category": "Health & Wellness",
+            "sales": 10000,
+            "percentage": 8
+        },
+        {
+            "category": "Home & Living",
+            "sales": 5000,
+            "percentage": 4
+        }
+    ],
+    "recentActivity": [
+        {
+            "id": 1,
+            "type": "order",
+            "title": "Order #2048",
+            "user": "John Doe",
+            "date": "2025-01-12",
+            "status": "New Order"
+        },
+        {
+            "id": 2,
+            "type": "alert",
+            "title": "Low Stock Alert",
+            "product": "MacBook Air M2",
+            "date": "2025-01-10",
+            "status": "Low Stock"
+        },
+        {
+            "id": 3,
+            "type": "promo",
+            "title": "Promo Code \"SUMMER20\"",
+            "description": "Applied 52 times",
+            "date": "2025-01-08",
+            "status": "Campaign"
+        },
+        {
+            "id": 4,
+            "type": "system",
+            "title": "System Update",
+            "version": "1.2.1",
+            "date": "2025-01-02",
+            "status": "System"
+        }
+    ],
+    "topProducts": [
+        {
+            "id": 1,
+            "name": "iPhone 15 Pro",
+            "stock": 6200,
+            "price": 999,
+            "sales": 4800,
+            "earnings": 4795200
+        },
+        {
+            "id": 2,
+            "name": "MacBook Air M2",
+            "stock": 1020,
+            "price": 1299,
+            "sales": 3200,
+            "earnings": 4156800
+        },
+        {
+            "id": 3,
+            "name": "Google Pixel 8",
+            "stock": 1500,
+            "price": 699,
+            "sales": 800,
+            "earnings": 559200
+        },
+        {
+            "id": 4,
+            "name": "Nike Air Max 90",
+            "stock": 2400,
+            "price": 130,
+            "sales": 1800,
+            "earnings": 234000
+        },
+        {
+            "id": 5,
+            "name": "Galaxy Buds Pro",
+            "stock": 850,
+            "price": 199,
+            "sales": 1000,
+            "earnings": 199000
+        }
+    ],
+    "sidebar": [
+        {
+            "id": 1,
+            "label": "Dashboard",
+            "icon": "dashboard",
+            "route": "/dashboard"
+        },
+        {
+            "id": 2,
+            "label": "Products",
+            "icon": "products",
+            "route": "/products"
+        },
+        {
+            "id": 3,
+            "label": "Orders",
+            "icon": "orders",
+            "subTabs": [
+                {
+                    "label": "All Orders",
+                    "route": "/orders/all"
+                },
+                {
+                    "label": "Returns",
+                    "route": "/orders/returns"
+                },
+                {
+                    "label": "Order Tracking",
+                    "route": "/orders/tracking"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "label": "Customers",
+            "icon": "customers",
+            "route": "/customers"
+        },
+        {
+            "id": 5,
+            "label": "Support",
+            "icon": "support",
+            "subTabs": [
+                {
+                    "label": "Help",
+                    "route": "/support/help"
+                },
+                {
+                    "label": "Contact",
+                    "route": "/support/contact"
+                },
+                {
+                    "label": "Complaint",
+                    "route": "/support/complaint"
+                }
+            ]
+        }
+    ]
+}
