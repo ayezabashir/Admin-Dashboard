@@ -31,6 +31,7 @@ const MainHeader = () => {
           type="search"
           name="search"
           id="search"
+          placeholder="Search Anything..."
         />
         <BiSearch className="text-xl text-gray-900 dark:text-gray-200" />
       </div>

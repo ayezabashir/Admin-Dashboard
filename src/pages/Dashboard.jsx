@@ -1,4 +1,6 @@
+import SalesRevenue from "../components/Dashboard/SalesRevenue";
 import SummaryCard from "../components/Dashboard/SummaryCard";
+import TopCategories from "../components/Dashboard/TopCategories";
 import dashboardata from "../data/dashboardData.json";
 import {
   RiShoppingBag3Line,
@@ -35,6 +37,12 @@ const Dashboard = () => {
           value={`$${summary.totalExpenses}`}
           icon={RiWallet3Line}
         />
+      </div>
+      <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2">
+          <SalesRevenue data={salesRevenue} />
+        </div>
+        <TopCategories data={topCategories} />
       </div>
     </div>
   );

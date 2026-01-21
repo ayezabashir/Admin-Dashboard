@@ -1,5 +1,4 @@
 import Chart from "react-apexcharts";
-
 const SalesRevenue = ({ data }) => {
   const series = [
     {
@@ -11,7 +10,6 @@ const SalesRevenue = ({ data }) => {
       data: data.map((item) => item.recurring),
     },
   ];
-
   const options = {
     chart: {
       type: "bar",
