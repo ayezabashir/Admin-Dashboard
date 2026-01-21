@@ -12,10 +12,10 @@ const ListItem = ({ active, open, icon: Icon, text, onClick, subTabs }) => {
       >
         <div className="flex gap-2 items-center">
           <Icon
-            className={`text-2xl ${active ? "text-black" : "text-gray-500"}`}
+            className={`text-2xl ${active ? "text-black dark:text-slate-800" : "text-gray-500 dark:text-gray-400"}`}
           />
           <p
-            className={`text-base font-semibold ${open ? "block" : "hidden"} ${active ? "text-black" : "text-gray-500"}`}
+            className={`text-base font-semibold ${open ? "block" : "hidden"} ${active ? "text-black dark:text-slate-800" : "text-gray-500 dark:text-gray-400"}`}
           >
             {text}
           </p>
@@ -23,9 +23,9 @@ const ListItem = ({ active, open, icon: Icon, text, onClick, subTabs }) => {
         {subTabs && open && (
           <div onClick={() => setDropDownOpen(!dropdownopen)}>
             {dropdownopen ? (
-              <BiDownArrow className="text-gray-500" />
+              <BiDownArrow className="text-gray-500 dark:text-gray-400" />
             ) : (
-              <BiUpArrow className="text-gray-500" />
+              <BiUpArrow className="text-gray-500 dark:text-gray-400" />
             )}
           </div>
         )}
@@ -35,8 +35,9 @@ const ListItem = ({ active, open, icon: Icon, text, onClick, subTabs }) => {
         open &&
         subTabs.map((item, index) => (
           <li
+            onClick={onClick}
             key={index}
-            className={`text-gray-500 font-semibold pl-10 mt-3 cursor-pointer text-sm`}
+            className={`text-gray-500 font-semibold ml-7 mt-3 py-2 px-3 cursor-pointer text-sm ${active ? "bg-gray-300 rounded-xl" : ""}`}
           >
             {item}
           </li>
