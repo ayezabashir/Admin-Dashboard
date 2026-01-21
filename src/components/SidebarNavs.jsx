@@ -39,7 +39,8 @@ const items = [
 ];
 
 const SidebarNavs = ({ open }) => {
-  const [activeId, setActiveId] = useState(1);
+  const [activeMainId, setActiveMainId] = useState(1);
+  const [activeSubTab, setActiveSubTab] = useState(null);
   return (
     <ul className="flex flex-col gap-5">
       {items.map((item) => (
@@ -48,9 +49,14 @@ const SidebarNavs = ({ open }) => {
           open={open}
           icon={item.icon}
           text={item.text}
-          active={activeId === item.id}
-          onClick={() => setActiveId(item.id)}
+          active={activeMainId === item.id}
+          onMainClick = {()=>{
+            setActiveMainId(item.id);
+            setActiveSubTab(null);
+          }}
           subTabs={item.subTabs}
+          activeSubTab={activeSubTab}
+          onSubTabClick={(sub)=>setActiveSubTab(sub)}
         />
       ))}
     </ul>
