@@ -14,7 +14,12 @@ const ListItem = ({
 }) => {
   const [dropdownopen, setDropDownOpen] = useState(false);
   return (
-    <div>
+    <div
+      onClick={(e) => {
+        e.stopPropagation();
+        setDropDownOpen(!dropdownopen);
+      }}
+    >
       <li
         onClick={onMainClick}
         className={`p-2 flex items-center justify-between cursor-pointer ${active ? "bg-gray-300 rounded-xl" : ""}`}
@@ -30,12 +35,7 @@ const ListItem = ({
           </p>
         </div>
         {subTabs && open && (
-          <div
-            onClick={(e) => {
-              e.stopPropagation();
-              setDropDownOpen(!dropdownopen);
-            }}
-          >
+          <div>
             {dropdownopen ? (
               <BiDownArrow className="text-gray-500 dark:text-gray-400" />
             ) : (
