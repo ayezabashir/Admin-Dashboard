@@ -96,7 +96,7 @@ const Sidebar = () => {
                   ${
                     isActive
                       ? "bg-zinc-200 dark:bg-zinc-800 text-black dark:text-white"
-                      : "text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                      : "text-zinc-500 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900"
                   }`}
                 >
                   <Icon className="text-xl min-w-6" />
@@ -122,7 +122,7 @@ const Sidebar = () => {
                   ${
                     isActive
                       ? "bg-zinc-200 dark:bg-zinc-800 text-black dark:text-white"
-                      : "text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                      : "text-zinc-500 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900"
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -160,7 +160,7 @@ const Sidebar = () => {
                           ${
                             isActive
                               ? "bg-zinc-300 dark:bg-zinc-800 text-black dark:text-white"
-                              : "text-zinc-500 hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                              : "text-zinc-500 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900"
                           }`
                       }
                     >
