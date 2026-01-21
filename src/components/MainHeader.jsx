@@ -3,10 +3,12 @@ import manimg from "/person.jpg";
 import { useContext, useEffect, useState } from "react";
 import NotificationModalBox from "./NotificationModalBox";
 import { themeContext } from "../context/themeContext";
+import AdminModalBox from "./AdminModalBox";
 
 const MainHeader = () => {
   const value = useContext(themeContext);
   const [showNotificationModal, setShowNotificationModal] = useState(false);
+  const [showAdminModal, setShowAdminModal] = useState(false);
   const toggleMode = () => {
     const newMode = value.mode === "light" ? "dark" : "light";
     value.setMode(newMode);
@@ -22,7 +24,12 @@ const MainHeader = () => {
 
   const handleNotifications = () => {
     setShowNotificationModal(!showNotificationModal);
+    setShowAdminModal(false)
   };
+  const handleAdmin = ()=>{
+    setShowAdminModal(!showAdminModal)
+    setShowNotificationModal(false)
+  }
   return (
     <header className="bg-white dark:bg-black h-18 flex items-center justify-between p-4 transition-all duration-300 ease-in-out">
       <div className="flex justify-between items-center border border-gray-400 rounded-xl p-2 ">
@@ -36,7 +43,7 @@ const MainHeader = () => {
         <BiSearch className="text-xl text-gray-900 dark:text-gray-200" />
       </div>
       <div className="flex items-center gap-5">
-        <button type="button" onClick={toggleMode}>
+        <button className="outline-none" type="button" onClick={toggleMode}>
           {value.mode === "light" ? (
             <BiMoon className="text-xl cursor-pointer text-gray-900 dark:text-gray-200" />
           ) : (
@@ -56,22 +63,27 @@ const MainHeader = () => {
         <div>
           <BiShoppingBag className="text-xl cursor-pointer text-gray-900 dark:text-gray-200" />
         </div>
-        <div className="flex items-center justify-center gap-3">
-          <img
-            width="35"
-            height="35"
-            className="rounded-full"
-            src={manimg}
-            alt=""
-          />
-          <div className="flex flex-col items-start ">
-            <p className="text-sm font-semibold text-gray-900 dark:text-gray-200">
-              Paul Wesley
-            </p>
-            <p className="text-sm text-gray-900 dark:text-gray-200">
-              Web Designer
-            </p>
+        <div className="relative cursor-pointer" onClick={handleAdmin}>
+          <div className="flex items-center justify-center gap-3">
+            <img
+              width="35"
+              height="35"
+              className="rounded-full"
+              src={manimg}
+              alt=""
+            />
+            <div className="flex flex-col items-start ">
+              <p className="text-sm font-semibold text-gray-900 dark:text-gray-200">
+                Paul Wesley
+              </p>
+              <p className="text-sm text-gray-900 dark:text-gray-200">
+                Web Designer
+              </p>
+            </div>
           </div>
+          {showAdminModal && <div className="absolute top-13 right-0">
+            <AdminModalBox />
+            </div>}
         </div>
       </div>
     </header>
