@@ -24,7 +24,7 @@ const MainHeader = () => {
     setShowNotificationModal(!showNotificationModal);
   };
   return (
-    <header className="bg-white dark:bg-black h-18 flex items-center justify-between p-4">
+    <header className="bg-white dark:bg-black h-18 flex items-center justify-between p-4 transition-all duration-300 ease-in-out">
       <div className="flex justify-between items-center border border-gray-400 rounded-xl p-2 ">
         <input
           className="outline-0 text-sm"

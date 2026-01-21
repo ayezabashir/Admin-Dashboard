@@ -6,6 +6,8 @@ import {
   RiFileList3Line,
   RiUser3Line,
   RiCustomerService2Line,
+  RiMenuFoldLine,
+  RiMenuUnfoldLine,
 } from "react-icons/ri";
 import { BiChevronDown } from "react-icons/bi";
 
@@ -52,14 +54,34 @@ const sidebarItems = [
 
 const Sidebar = () => {
   const location = useLocation();
+  const [open, setOpen] = useState(true);
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const isSubRouteActive = (subTabs) =>
     subTabs?.some((tab) => location.pathname === tab.route);
 
   return (
-    <aside className="w-64 bg-white dark:bg-black border-r border-gray-200 dark:border-gray-800 p-4">
-      <ul className="flex flex-col gap-2">
+    <aside
+      className={`h-screen bg-white dark:bg-black border-r border-gray-200 dark:border-gray-800
+      transition-all duration-300 ease-in-out
+      ${open ? "w-64" : "w-20"}`}
+    >
+      <div className="flex items-center justify-between p-4">
+        <h1 className={`text-xl font-bold text-gray-600 dark:text-gray-300 ${open ? "block" : "hidden"}`}>
+          Dashboard
+        </h1>
+        <button
+          onClick={() => {
+            setOpen(!open);
+            setOpenDropdown(null);
+          }}
+          className="text-xl text-gray-600 dark:text-gray-300"
+        >
+          {open ? <RiMenuFoldLine /> : <RiMenuUnfoldLine />}
+        </button>
+      </div>
+
+      <ul className="flex flex-col gap-2 px-2">
         {sidebarItems.map((item) => {
           const Icon = item.icon;
           const isActive =
@@ -70,43 +92,64 @@ const Sidebar = () => {
               {item.route ? (
                 <NavLink
                   to={item.route}
-                  className={`flex items-center gap-3 p-3 rounded-xl font-medium transition
-                    ${
-                      isActive
-                        ? "bg-gray-200 dark:bg-gray-800 text-black dark:text-white"
-                        : "text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900"
-                    }
-                  `}
+                  className={`flex items-center gap-3 p-3 rounded-xl transition
+                  ${
+                    isActive
+                      ? "bg-gray-200 dark:bg-gray-800 text-black dark:text-white"
+                      : "text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900"
+                  }`}
                 >
-                  <Icon className="text-xl" />
-                  <span>{item.label}</span>
+                  <Icon className="text-xl min-w-6" />
+
+                  <span
+                    className={`transition-all duration-300 origin-left
+                    ${
+                      open
+                        ? "opacity-100 scale-100"
+                        : "opacity-0 scale-0 hidden"
+                    }`}
+                  >
+                    {item.label}
+                  </span>
                 </NavLink>
               ) : (
                 <button
                   onClick={() =>
+                    open &&
                     setOpenDropdown(openDropdown === item.id ? null : item.id)
                   }
-                  className={`w-full flex items-center justify-between p-3 rounded-xl font-medium transition
-                    ${
-                      isActive
-                        ? "bg-gray-200 dark:bg-gray-800 text-black dark:text-white"
-                        : "text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900"
-                    }
-                  `}
+                  className={`w-full flex items-center justify-between p-3 rounded-xl transition
+                  ${
+                    isActive
+                      ? "bg-gray-200 dark:bg-gray-800 text-black dark:text-white"
+                      : "text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900"
+                  }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Icon className="text-xl" />
-                    <span>{item.label}</span>
+                    <Icon className="text-xl min-w-6" />
+
+                    <span
+                      className={`transition-all duration-300 origin-left
+                      ${
+                        open
+                          ? "opacity-100 scale-100"
+                          : "opacity-0 scale-0 hidden"
+                      }`}
+                    >
+                      {item.label}
+                    </span>
                   </div>
-                  <BiChevronDown
-                    className={`transition ${
-                      openDropdown === item.id ? "rotate-180" : ""
-                    }`}
-                  />
+
+                  {open && (
+                    <BiChevronDown
+                      className={`transition-transform duration-300
+                      ${openDropdown === item.id ? "rotate-180" : ""}`}
+                    />
+                  )}
                 </button>
               )}
 
-              {item.subTabs && openDropdown === item.id && (
+              {open && item.subTabs && openDropdown === item.id && (
                 <ul className="ml-10 mt-2 flex flex-col gap-1">
                   {item.subTabs.map((sub) => (
                     <NavLink
@@ -114,11 +157,11 @@ const Sidebar = () => {
                       to={sub.route}
                       className={({ isActive }) =>
                         `text-sm px-3 py-2 rounded-lg transition
-                        ${
-                          isActive
-                            ? "bg-gray-300 dark:bg-gray-700 text-black dark:text-white"
-                            : "text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900"
-                        }`
+                          ${
+                            isActive
+                              ? "bg-gray-300 dark:bg-gray-700 text-black dark:text-white"
+                              : "text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900"
+                          }`
                       }
                     >
                       {sub.label}
