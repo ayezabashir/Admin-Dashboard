@@ -30,7 +30,6 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
         id: prev.length + 1,
         ...formData,
         orders: Number(formData.orders),
-        totalSpent: Number(formData.totalSpent),
         avatar: formData.avatar ? URL.createObjectURL(formData.avatar) : "",
       },
     ]);
@@ -66,6 +65,14 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
             className="w-full border rounded-lg px-3 py-2"
             required
           />
+          <input
+            type="number"
+            name="orders"
+            placeholder="orders"
+            value={formData.orders}
+            onChange={handleChange}
+            className="w-full border rounded-lg px-3 py-2"
+          />
           <div>
             <input
               type="file"
@@ -88,9 +95,15 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
             onChange={handleChange}
             className="w-full border rounded-lg px-3 py-2"
           >
-            <option className="bg-white dark:bg-black" value="active">Active</option>
-            <option className="bg-white dark:bg-black" value="inactive">Inactive</option>
-            <option className="bg-white dark:bg-black" value="blocked">Blocked</option>
+            <option className="bg-white dark:bg-black" value="active">
+              Active
+            </option>
+            <option className="bg-white dark:bg-black" value="inactive">
+              Inactive
+            </option>
+            <option className="bg-white dark:bg-black" value="blocked">
+              Blocked
+            </option>
           </select>
           <select
             name="type"
@@ -98,8 +111,12 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
             onChange={handleChange}
             className="w-full border rounded-lg px-3 py-2"
           >
-            <option className="bg-white dark:bg-black" value="new">New</option>
-            <option className="bg-white dark:bg-black" value="vip">VIP</option>
+            <option className="bg-white dark:bg-black" value="new">
+              New
+            </option>
+            <option className="bg-white dark:bg-black" value="vip">
+              VIP
+            </option>
           </select>
           <button
             type="submit"

@@ -14,7 +14,7 @@ const Products = () => {
     return products.filter((product) => {
       const matchName = product.name
         .toLowerCase()
-        .includes(search.toLocaleLowerCase());
+        .includes(search.toLowerCase());
       const matchCategory = category === "" || product.category === category;
       const matchStatus = status === "" || product.status === status;
       return matchName && matchCategory && matchStatus;

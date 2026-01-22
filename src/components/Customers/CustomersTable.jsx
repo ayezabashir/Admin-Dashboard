@@ -33,7 +33,7 @@ const CustomersTable = ({ customers }) => {
             >
               <td className="p-4 flex items-center gap-3">
                 <img
-                  src={c.avatar || ""}
+                  src={c.avatar}
                   alt={c.name}
                   className="w-10 h-10 rounded-lg object-cover"
                 />
