@@ -11,9 +11,7 @@ const Customers = () => {
   const [typeFilter, setTypeFilter] = useState("all");
   const filteredCustomers = useMemo(() => {
     return customers.filter((c) => {
-      const matchName =
-        c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        c.email.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchName = c.name.toLowerCase().includes(searchQuery.toLowerCase()) 
       const matchStatus = statusFilter === "all" || c.status === statusFilter;
       const matchType = typeFilter === "all" || c.type === typeFilter;
       return matchName && matchStatus && matchType;

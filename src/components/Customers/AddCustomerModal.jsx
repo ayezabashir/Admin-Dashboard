@@ -7,7 +7,6 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
     email: "",
     avatar: null,
     orders: 0,
-    totalSpent: 0,
     status: "active",
     type: "new",
   });
@@ -75,7 +74,7 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
               name="avatar"
               accept="image/*"
               onChange={handleChange}
-              className="w-full"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             />
             {avatarPreview && (
               <img
@@ -102,7 +101,6 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
             className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
           >
             <option value="new">New</option>
-            <option value="returning">Returning</option>
             <option value="vip">VIP</option>
           </select>
           <button

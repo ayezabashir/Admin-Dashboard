@@ -12,10 +12,8 @@
             "email": "ayesha.khan@gmail.com",
             "avatar": "/person.jpg",
             "orders": 18,
-            "totalSpent": 1450,
             "status": "active",
-            "type": "vip",
-            "joinedAt": "2023-04-12"
+            "type": "vip"
         },
         {
             "id": 2,
@@ -23,10 +21,8 @@
             "email": "alina.raza@yahoo.com",
             "avatar": "/person.jpg",
             "orders": 5,
-            "totalSpent": 320,
             "status": "active",
-            "type": "returning",
-            "joinedAt": "2024-01-18"
+            "type": "new"
         },
         {
             "id": 3,
@@ -34,10 +30,8 @@
             "email": "sara.ahmed@hotmail.com",
             "avatar": "/person.jpg",
             "orders": 1,
-            "totalSpent": 75,
             "status": "inactive",
-            "type": "new",
-            "joinedAt": "2024-11-02"
+            "type": "new"
         },
         {
             "id": 4,
@@ -45,10 +39,8 @@
             "email": "mariam.malik@gmail.com",
             "avatar": "/person.jpg",
             "orders": 22,
-            "totalSpent": 2100,
             "status": "blocked",
-            "type": "vip",
-            "joinedAt": "2022-08-09"
+            "type": "vip"
         }
     ]
 }
