@@ -1,23 +1,36 @@
-import { RiAddLine } from 'react-icons/ri';
+import { useState } from "react";
+import { RiAddLine} from "react-icons/ri";
+import AddProducts from "./AddProducts";
 
-const ProductsHeader = () => {
+const ProductsHeader = ({ setProducts, categories }) => {
+  const [open, setOpen] = useState(false);
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-      <div>
-        <h1 className="text-2xl font-bold">Products</h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400">
-          Manage your products, pricing, and inventory
-        </p>
-      </div>
-      <button
-        type="button"
-        className="flex items-center gap-2 bg-black text-white dark:bg-white dark:text-black px-4 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition"
-      >
-        <RiAddLine className="text-lg" />
-        Add Product
-      </button>
-    </div>
-  );
-}
+    <>
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="text-2xl font-bold">Products</h1>
+          <p className="text-sm text-gray-500">
+            Manage your products and inventory
+          </p>
+        </div>
 
-export default ProductsHeader
+        <button
+          onClick={() => setOpen(true)}
+          className="flex items-center gap-2 bg-black text-white dark:bg-white dark:text-black px-4 py-2 rounded-xl text-sm font-semibold"
+        >
+          <RiAddLine />
+          Add Product
+        </button>
+      </div>
+      {open && (
+        <AddProducts
+          setOpen={setOpen}
+          setProducts={setProducts}
+          categories={categories}
+        />
+      )}
+    </>
+  );
+};
+
+export default ProductsHeader;

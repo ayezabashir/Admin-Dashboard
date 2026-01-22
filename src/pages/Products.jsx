@@ -7,7 +7,8 @@ const Products = () => {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState("");
-  const { categories, products } = producstData;
+  const { categories } = producstData;
+  const [products, setProducts]= useState(producstData.products);
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
@@ -21,7 +22,7 @@ const Products = () => {
   }, [products, search, category, status]);
   return (
     <div className="text-gray-900 dark:text-gray-200 space-y-6">
-      <ProductsHeader />
+      <ProductsHeader setProducts={setProducts} categories={categories} />
       <ProductsFilter
         categories={categories}
         search={search}
