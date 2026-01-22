@@ -1,4 +1,5 @@
 import Chart from "react-apexcharts";
+import { FaChartSimple, FaSalesforce } from "react-icons/fa6";
 const SalesRevenue = ({ data }) => {
   const series = [
     {
@@ -13,12 +14,12 @@ const SalesRevenue = ({ data }) => {
   const options = {
     chart: {
       type: "bar",
-      toolbar: { show: false },
+      toolbar: { show: true },
     },
     plotOptions: {
       bar: {
-        borderRadius: 6,
-        columnWidth: "45%",
+        borderRadius: 0,
+        columnWidth: "50%",
       },
     },
     xaxis: {
@@ -34,7 +35,12 @@ const SalesRevenue = ({ data }) => {
 
   return (
     <div className="bg-white dark:bg-black p-6 rounded-xl border border-gray-200 dark:border-gray-800">
-      <h3 className="font-semibold mb-4">Sales Revenue</h3>
+      <div className="flex gap-2 items-center ">
+        <FaChartSimple className="text-gray-900 dark:text-gray-200" />
+        <h3 className="font-semibold text-gray-900 dark:text-gray-200">
+          Sales Revenue
+        </h3>
+      </div>
       <Chart options={options} series={series} type="bar" height={300} />
     </div>
   );

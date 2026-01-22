@@ -1,6 +1,8 @@
+import RecentActivity from "../components/Dashboard/RecentActivity";
 import SalesRevenue from "../components/Dashboard/SalesRevenue";
 import SummaryCard from "../components/Dashboard/SummaryCard";
 import TopCategories from "../components/Dashboard/TopCategories";
+import TopProducts from "../components/Dashboard/TopProducts";
 import dashboardata from "../data/dashboardData.json";
 import {
   RiShoppingBag3Line,
@@ -47,6 +49,12 @@ const Dashboard = () => {
           <SalesRevenue data={salesRevenue} />
         </div>
         <TopCategories data={topCategories} />
+      </div>
+      <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-1">
+          <RecentActivity data={recentActivity} />
+        </div>
+        <TopProducts data={topProducts} />
       </div>
     </div>
   );
