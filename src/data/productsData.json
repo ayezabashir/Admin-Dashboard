@@ -1,0 +1,71 @@
+{
+    "categories": [
+        "Electronics",
+        "Fashion",
+        "Home Appliances",
+        "Books",
+        "Accessories"
+    ],
+    "products": [
+        {
+            "id": 1,
+            "name": "Wireless Headphones",
+            "sku": "WH-1023",
+            "category": "Electronics",
+            "price": 120,
+            "stock": 34,
+            "rating": 4.5,
+            "status": "active",
+            "image": "/products/headphones.jpg",
+            "createdAt": "2024-12-01"
+        },
+        {
+            "id": 2,
+            "name": "Smart Watch",
+            "sku": "SW-2041",
+            "category": "Accessories",
+            "price": 89,
+            "stock": 0,
+            "rating": 4.2,
+            "status": "out_of_stock",
+            "image": "/products/smartwatch.jpg",
+            "createdAt": "2024-11-18"
+        },
+        {
+            "id": 3,
+            "name": "Leather Jacket",
+            "sku": "LJ-3009",
+            "category": "Fashion",
+            "price": 150,
+            "stock": 12,
+            "rating": 4.8,
+            "status": "active",
+            "image": "/products/jacket.jpg",
+            "createdAt": "2024-10-05"
+        },
+        {
+            "id": 4,
+            "name": "Air Fryer",
+            "sku": "AF-5567",
+            "category": "Home Appliances",
+            "price": 95,
+            "stock": 6,
+            "rating": 4.3,
+            "status": "low_stock",
+            "image": "/products/airfryer.jpg",
+            "createdAt": "2024-09-22"
+        },
+        {
+            "id": 5,
+            "name": "Programming Book",
+            "sku": "BK-7781",
+            "category": "Books",
+            "price": 35,
+            "stock": 48,
+            "rating": 4.9,
+            "status": "active",
+            "image": "/products/book.jpg",
+            "createdAt": "2024-08-15"
+        }
+    ]
+}
