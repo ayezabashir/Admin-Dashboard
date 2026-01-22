@@ -17,24 +17,28 @@ const Dashboard = () => {
         <SummaryCard
           title="Total Products"
           value={summary.totalProducts}
+          progress="+2.5% increase"
           icon={RiShoppingBag3Line}
         />
 
         <SummaryCard
           title="Total Sales"
           value={summary.totalSales}
+          progress="+5.8% increase"
           icon={RiFileList3Line}
         />
 
         <SummaryCard
           title="Total Income"
           value={`$${summary.totalIncome}`}
+          progress="-3.3% decrease"
           icon={RiMoneyDollarCircleLine}
         />
 
         <SummaryCard
           title="Total Expenses"
           value={`$${summary.totalExpenses}`}
+          progress="+2.5% increase"
           icon={RiWallet3Line}
         />
       </div>
