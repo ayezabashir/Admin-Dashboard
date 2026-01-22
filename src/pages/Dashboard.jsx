@@ -54,7 +54,9 @@ const Dashboard = () => {
         <div className="lg:col-span-2">
           <RecentActivity data={recentActivity} />
         </div>
+        <div className="lg:col-span-3">
         <TopProducts data={topProducts} />
+        </div>
       </div>
     </div>
   );

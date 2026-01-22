@@ -15,7 +15,7 @@ const RecentActivity = ({data}) => {
           See All
         </button>
       </div>
-      <div className="flex flex-col gap-5 w-full">
+      <div className="flex flex-col gap-4 w-full">
         {data.map((item) => (
           <Activity
             key={item.id}
