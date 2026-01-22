@@ -50,8 +50,8 @@ const Dashboard = () => {
         </div>
         <TopCategories data={topCategories} />
       </div>
-      <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-1">
+      <div className="mt-10 grid grid-cols-1 lg:grid-cols-5 gap-6">
+        <div className="lg:col-span-2">
           <RecentActivity data={recentActivity} />
         </div>
         <TopProducts data={topProducts} />

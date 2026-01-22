@@ -74,7 +74,7 @@
             "id": 1,
             "type": "order",
             "title": "Order #2048",
-            "user": "John Doe",
+            "subtitle": "John Doe",
             "date": "2025-01-12",
             "status": "New Order"
         },
@@ -82,7 +82,7 @@
             "id": 2,
             "type": "alert",
             "title": "Low Stock Alert",
-            "product": "MacBook Air M2",
+            "subtitle": "MacBook Air M2",
             "date": "2025-01-10",
             "status": "Low Stock"
         },
@@ -90,7 +90,7 @@
             "id": 3,
             "type": "promo",
             "title": "Promo Code \"SUMMER20\"",
-            "description": "Applied 52 times",
+            "subtitle": "Applied 52 times",
             "date": "2025-01-08",
             "status": "Campaign"
         },
@@ -98,7 +98,7 @@
             "id": 4,
             "type": "system",
             "title": "System Update",
-            "version": "1.2.1",
+            "subtitle": "1.2.1",
             "date": "2025-01-02",
             "status": "System"
         }
