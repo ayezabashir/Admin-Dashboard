@@ -33,7 +33,7 @@ const CustomersTable = ({ customers }) => {
             >
               <td className="p-4 flex items-center gap-3">
                 <img
-                  src={c.avatar || "/customers/default.jpg"}
+                  src={c.avatar || ""}
                   alt={c.name}
                   className="w-10 h-10 rounded-lg object-cover"
                 />
@@ -49,14 +49,14 @@ const CustomersTable = ({ customers }) => {
                 <span
                   className={`px-3 py-1 rounded-full text-xs font-semibold ${statusStyles[c.status]}`}
                 >
-                  {c.status.charAt(0).toUpperCase() + c.status.slice(1)}
+                  {c.status}
                 </span>
               </td>
               <td className="p-4">
                 <span
                   className={`px-3 py-1 rounded-full text-xs font-semibold ${typeStyles[c.type]}`}
                 >
-                  {c.type.charAt(0).toUpperCase() + c.type.slice(1)}
+                  {c.type}
                 </span>
               </td>
               <td className="p-4 text-right">

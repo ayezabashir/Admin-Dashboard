@@ -39,16 +39,14 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-      <div className="bg-white dark:bg-gray-800 rounded-xl p-6 w-full max-w-md relative">
+      <div className="bg-white dark:bg-zinc-800 rounded-xl p-6 w-full max-w-md relative">
         <button
           onClick={() => setOpen(false)}
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-white"
         >
           <RiCloseLine size={24} />
         </button>
-
         <h2 className="text-xl font-bold mb-4">Add Customer</h2>
-
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
@@ -56,7 +54,7 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
             placeholder="Full Name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+            className="w-full border rounded-lg px-3 py-2"
             required
           />
           <input
@@ -65,7 +63,7 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
             placeholder="Email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+            className="w-full border rounded-lg px-3 py-2"
             required
           />
           <div>
@@ -74,7 +72,7 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
               name="avatar"
               accept="image/*"
               onChange={handleChange}
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full border rounded-lg px-3 py-2"
             />
             {avatarPreview && (
               <img
@@ -88,20 +86,20 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
             name="status"
             value={formData.status}
             onChange={handleChange}
-            className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+            className="w-full border rounded-lg px-3 py-2"
           >
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
-            <option value="blocked">Blocked</option>
+            <option className="bg-white dark:bg-black" value="active">Active</option>
+            <option className="bg-white dark:bg-black" value="inactive">Inactive</option>
+            <option className="bg-white dark:bg-black" value="blocked">Blocked</option>
           </select>
           <select
             name="type"
             value={formData.type}
             onChange={handleChange}
-            className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+            className="w-full border rounded-lg px-3 py-2"
           >
-            <option value="new">New</option>
-            <option value="vip">VIP</option>
+            <option className="bg-white dark:bg-black" value="new">New</option>
+            <option className="bg-white dark:bg-black" value="vip">VIP</option>
           </select>
           <button
             type="submit"
