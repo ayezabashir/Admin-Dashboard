@@ -5,20 +5,16 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    avatar: null, // store the file
+    avatar: null,
     orders: 0,
     totalSpent: 0,
     status: "active",
     type: "new",
-    joinedAt: new Date().toISOString().split("T")[0], // default today
   });
-
-  // For showing avatar preview
   const [avatarPreview, setAvatarPreview] = useState(null);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-
     if (name === "avatar" && files[0]) {
       setFormData((prev) => ({ ...prev, avatar: files[0] }));
       setAvatarPreview(URL.createObjectURL(files[0]));
@@ -29,7 +25,6 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setCustomers((prev) => [
       ...prev,
       {
@@ -37,11 +32,9 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
         ...formData,
         orders: Number(formData.orders),
         totalSpent: Number(formData.totalSpent),
-        // Generate URL for avatar if a file is uploaded
         avatar: formData.avatar ? URL.createObjectURL(formData.avatar) : "",
       },
     ]);
-
     setOpen(false);
   };
 
@@ -58,7 +51,6 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
         <h2 className="text-xl font-bold mb-4">Add Customer</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Name */}
           <input
             type="text"
             name="name"
@@ -68,8 +60,6 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
             className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             required
           />
-
-          {/* Email */}
           <input
             type="email"
             name="email"
@@ -79,8 +69,6 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
             className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             required
           />
-
-          {/* Avatar file input */}
           <div>
             <input
               type="file"
@@ -97,9 +85,6 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
               />
             )}
           </div>
-
-
-          {/* Status */}
           <select
             name="status"
             value={formData.status}
@@ -110,8 +95,6 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
             <option value="inactive">Inactive</option>
             <option value="blocked">Blocked</option>
           </select>
-
-          {/* Type */}
           <select
             name="type"
             value={formData.type}
@@ -122,9 +105,6 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
             <option value="returning">Returning</option>
             <option value="vip">VIP</option>
           </select>
-
-
-          {/* Submit */}
           <button
             type="submit"
             className="w-full bg-black text-white dark:bg-white dark:text-black px-4 py-2 rounded-xl font-semibold"
