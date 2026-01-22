@@ -1,0 +1,54 @@
+{
+    "stats": {
+        "total": 1245,
+        "active": 980,
+        "vip": 120,
+        "blocked": 15
+    },
+    "customers": [
+        {
+            "id": 1,
+            "name": "Ayesha Khan",
+            "email": "ayesha.khan@gmail.com",
+            "avatar": "/person.jpg",
+            "orders": 18,
+            "totalSpent": 1450,
+            "status": "active",
+            "type": "vip",
+            "joinedAt": "2023-04-12"
+        },
+        {
+            "id": 2,
+            "name": "Alina Raza",
+            "email": "alina.raza@yahoo.com",
+            "avatar": "/person.jpg",
+            "orders": 5,
+            "totalSpent": 320,
+            "status": "active",
+            "type": "returning",
+            "joinedAt": "2024-01-18"
+        },
+        {
+            "id": 3,
+            "name": "Sara Ahmed",
+            "email": "sara.ahmed@hotmail.com",
+            "avatar": "/person.jpg",
+            "orders": 1,
+            "totalSpent": 75,
+            "status": "inactive",
+            "type": "new",
+            "joinedAt": "2024-11-02"
+        },
+        {
+            "id": 4,
+            "name": "Mariam Malik",
+            "email": "mariam.malik@gmail.com",
+            "avatar": "/person.jpg",
+            "orders": 22,
+            "totalSpent": 2100,
+            "status": "blocked",
+            "type": "vip",
+            "joinedAt": "2022-08-09"
+        }
+    ]
+}
