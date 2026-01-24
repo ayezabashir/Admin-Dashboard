@@ -1,0 +1,29 @@
+[
+    {
+        "id": "RET-201",
+        "orderId": "#ORD-1022",
+        "customer": "Shahtaj Raza",
+        "reason": "Damaged item",
+        "amount": 320,
+        "status": "pending",
+        "date": "2025-01-18"
+    },
+    {
+        "id": "RET-202",
+        "orderId": "#ORD-1019",
+        "customer": "Sara Ahmed",
+        "reason": "Wrong size",
+        "amount": 75,
+        "status": "approved",
+        "date": "2025-01-17"
+    },
+    {
+        "id": "RET-203",
+        "orderId": "#ORD-1015",
+        "customer": "Shumail Malik",
+        "reason": "Late delivery",
+        "amount": 2100,
+        "status": "rejected",
+        "date": "2025-01-15"
+    }
+]
