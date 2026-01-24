@@ -1,18 +1,23 @@
+import { BiSearch } from "react-icons/bi";
+
 const OrdersFilters = ({ search, setSearch, status, setStatus }) => {
   return (
-    <div className="flex flex-col md:flex-row gap-4 bg-gray-50 dark:bg-zinc-900 p-4 rounded-xl">
-      <input
-        type="text"
-        placeholder="Search order ID or customer"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="w-full md:w-1/2 px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-black"
-      />
+    <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-4 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+      <div className="flex items-center gap-2 border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2">
+        <BiSearch className="text-gray-500" />
+        <input
+          type="text"
+          placeholder="Search customer..."
+          value={search}
+          className="w-full outline-none bg-transparent text-sm"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
 
       <select
         value={status}
         onChange={(e) => setStatus(e.target.value)}
-        className="w-full md:w-1/4 px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-black"
+        className="border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm bg-transparent"
       >
         <option value="">All Status</option>
         <option value="pending">Pending</option>
