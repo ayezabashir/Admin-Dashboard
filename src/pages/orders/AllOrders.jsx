@@ -2,40 +2,7 @@ import { useMemo, useState } from "react";
 import OrdersHeader from "../../components/AllOrders/OrdersHeader";
 import OrdersFilters from "../../components/AllOrders/OrdersFilter";
 import OrdersTable from "../../components/AllOrders/OrdersTable";
-const orders = [
-  {
-    id: "#ORD-1021",
-    customer: "Ayesha Khan",
-    date: "2025-01-12",
-    amount: 1450,
-    payment: "Paid",
-    status: "delivered",
-  },
-  {
-    id: "#ORD-1022",
-    customer: "Ali Raza",
-    date: "2025-01-14",
-    amount: 320,
-    payment: "Pending",
-    status: "pending",
-  },
-  {
-    id: "#ORD-1023",
-    customer: "Sara Ahmed",
-    date: "2025-01-15",
-    amount: 75,
-    payment: "Paid",
-    status: "shipped",
-  },
-  {
-    id: "#ORD-1024",
-    customer: "Usman Malik",
-    date: "2025-01-16",
-    amount: 2100,
-    payment: "Refunded",
-    status: "cancelled",
-  },
-];
+import orders from "../../data/orders.json";
 
 const AllOrders = () => {
   const [search, setSearch] = useState("");
