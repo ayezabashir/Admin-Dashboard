@@ -17,7 +17,7 @@ const OrdersFilters = ({ search, setSearch, status, setStatus }) => {
       <select
         value={status}
         onChange={(e) => setStatus(e.target.value)}
-        className="border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm bg-transparent"
+        className="px-4 py-2 border rounded-xl outline-0 bg-white dark:bg-black border-gray-300 dark:border-gray-700"
       >
         <option value="">All Status</option>
         <option value="pending">Pending</option>

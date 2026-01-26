@@ -7,7 +7,7 @@ const OrderSelector = ({ orders, selectedOrderId, setSelectedOrderId }) => {
         <select
           value={selectedOrderId}
           onChange={(e) => setSelectedOrderId(e.target.value)}
-          className="border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm bg-transparent"
+          className="px-4 py-2 border rounded-xl outline-0 bg-white dark:bg-black border-gray-300 dark:border-gray-700"
         >
           {orders.map((order) => (
             <option key={order.id} value={order.id}>

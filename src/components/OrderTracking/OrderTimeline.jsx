@@ -25,7 +25,7 @@ const OrderTimeline = ({ status }) => {
                 {index + 1}
               </div>
               <p className="text-xs mt-2 text-center">{statusLabels[step]}</p>
-              {index !== statusSteps.length - 1 && (
+              {index !== statusSteps.length && (
                 <div
                   className={`h-1 w-full mt-4 ${
                     isActive
