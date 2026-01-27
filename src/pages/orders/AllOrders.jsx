@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
-import OrdersHeader from "../../components/AllOrders/OrdersHeader";
 import OrdersFilters from "../../components/AllOrders/OrdersFilter";
 import OrdersTable from "../../components/AllOrders/OrdersTable";
 import orders from "../../data/orders.json";
+import PageHeader from "../../components/PageHeader";
 
 const AllOrders = () => {
   const [search, setSearch] = useState("");
@@ -22,7 +22,10 @@ const AllOrders = () => {
 
   return (
     <div className="space-y-6 text-gray-900 dark:text-gray-200">
-      <OrdersHeader />
+      <PageHeader
+        headerTitle="All Orders"
+        headerSubtitle="View and manage customer orders"
+      />
 
       <OrdersFilters
         search={search}
