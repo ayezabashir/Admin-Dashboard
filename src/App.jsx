@@ -11,7 +11,6 @@ import Returns from "./pages/orders/Returns";
 import OrderTracking from "./pages/orders/OrderTracking";
 import Help from "./pages/support/Help";
 import Contact from "./pages/support/Contact";
-import Complaint from "./pages/support/Complaint";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -33,7 +32,6 @@ function App() {
             <Route path="support">
               <Route path="help" element={<Help />} />
               <Route path="contact" element={<Contact />} />
-              <Route path="complaint" element={<Complaint />} />
             </Route>
           </Route>
         </Routes>

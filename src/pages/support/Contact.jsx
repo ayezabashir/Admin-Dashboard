@@ -28,20 +28,20 @@ const Contact = () => {
     <div className="space-y-8">
         <PageHeader
           headerTitle="Contact Us"
-          headerSubtitle="Have a question? We’d love to hear from you."
+          headerSubtitle="Contact Us through following."
         />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="p-4 rounded-xl border bg-white dark:bg-black dark:border-gray-800">
+        <div className="px-4 py-2 rounded-xl border text-black dark:text-white bg-white dark:bg-black dark:border-gray-800">
           <p className="text-xs text-gray-500">Email</p>
           <p className="font-medium">support@example.com</p>
         </div>
 
-        <div className="p-4 rounded-xl border bg-white dark:bg-black dark:border-gray-800">
+        <div className="px-4 py-2 rounded-xl border text-black dark:text-white bg-white dark:bg-black dark:border-gray-800">
           <p className="text-xs text-gray-500">Phone</p>
           <p className="font-medium">090078601</p>
         </div>
 
-        <div className="p-4 rounded-xl border bg-white dark:bg-black dark:border-gray-800">
+        <div className="px-4 py-2 rounded-xl border text-black dark:text-white bg-white dark:bg-black dark:border-gray-800">
           <p className="text-xs text-gray-500">Response Time</p>
           <p className="font-medium">Within 24 hours</p>
         </div>

@@ -46,8 +46,7 @@ const sidebarItems = [
     icon: RiCustomerService2Line,
     subTabs: [
       { label: "Help", route: "/support/help" },
-      { label: "Contact", route: "/support/contact" },
-      { label: "Complaint", route: "/support/complaint" },
+      { label: "Contact", route: "/support/contact" }
     ],
   },
 ];
