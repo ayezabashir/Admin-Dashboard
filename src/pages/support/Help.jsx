@@ -15,7 +15,10 @@ const Help = () => {
 
   return (
     <div className="space-y-6 text-gray-900 dark:text-gray-200">
-      <PageHeader />
+      <PageHeader
+        headerTitle="Help Center"
+        headerSubtitle="Find answers to common questions and issues"
+      />
       <HelpSearch search={search} setSearch={setSearch} />
       <HelpList items={filteredHelp} />
     </div>
