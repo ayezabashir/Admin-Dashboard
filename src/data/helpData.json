@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "category": "Orders",
+        "question": "How do I track an order?",
+        "answer": "Go to Orders > Order Tracking and select the order you want to track."
+    },
+    {
+        "id": 2,
+        "category": "Returns",
+        "question": "How can I approve a return?",
+        "answer": "Open the Returns page, find the request, and click the approve button."
+    },
+    {
+        "id": 3,
+        "category": "Products",
+        "question": "How do I add a new product?",
+        "answer": "Navigate to Products and click on the Add Product button."
+    },
+    {
+        "id": 4,
+        "category": "Customers",
+        "question": "How do I block a customer?",
+        "answer": "Go to Customers, open actions menu, and select Block."
+    }
+]
