@@ -56,7 +56,7 @@ const Contact = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="px-4 py-2 rounded-lg border bg-transparent dark:border-gray-700"
+            className="px-4 py-2 rounded-lg border bg-transparent dark:border-gray-700 text-black dark:text-white"
           />
           <input
             type="email"
@@ -65,7 +65,7 @@ const Contact = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="px-4 py-2 rounded-lg border bg-transparent dark:border-gray-700"
+            className="px-4 py-2 rounded-lg border bg-transparent dark:border-gray-700 text-black dark:text-white"
           />
         </div>
         <input
@@ -75,7 +75,7 @@ const Contact = () => {
           value={formData.subject}
           onChange={handleChange}
           required
-          className="w-full px-4 py-2 rounded-lg border bg-transparent dark:border-gray-700"
+          className="w-full px-4 py-2 rounded-lg border bg-transparent dark:border-gray-700 text-black dark:text-white"
         />
         <textarea
           name="message"
@@ -84,7 +84,7 @@ const Contact = () => {
           onChange={handleChange}
           rows={5}
           required
-          className="w-full px-4 py-2 rounded-lg border bg-transparent dark:border-gray-700 resize-none"
+          className="w-full px-4 py-2 rounded-lg border bg-transparent dark:border-gray-700 text-black dark:text-white resize-none"
         />
         <button
           type="submit"

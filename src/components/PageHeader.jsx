@@ -4,7 +4,9 @@ const PageHeader = ({ headerTitle, headerSubtitle, btnText, onClick }) => {
   return (
     <div className="flex justify-between items-center">
       <div>
-        <h1 className="text-2xl font-bold">{headerTitle}</h1>
+        <h1 className="text-2xl font-bold text-black dark:text-white">
+          {headerTitle}
+        </h1>
         <p className="text-sm text-gray-500">{headerSubtitle}</p>
       </div>
       {btnText && (

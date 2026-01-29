@@ -18,7 +18,7 @@ const Help = () => {
         {faqs.map((faq) => (
           <div
             key={faq.id}
-            className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-4"
+            className="bg-white text-black dark:text-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-4"
           >
             <button
               onClick={() => setActiveFaq(activeFaq === faq.id ? null : faq.id)}

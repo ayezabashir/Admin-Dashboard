@@ -22,7 +22,7 @@ const AskQuestionModal = ({ open, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center">
-      <div className="bg-white dark:bg-black w-full max-w-md rounded-2xl p-6 relative">
+      <div className="bg-white dark:bg-zinc-800 w-full max-w-md rounded-2xl p-6 relative">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-xl text-gray-500 hover:text-black dark:hover:text-white"
@@ -30,7 +30,9 @@ const AskQuestionModal = ({ open, onClose }) => {
           <RiCloseLine />
         </button>
 
-        <h2 className="text-lg font-semibold mb-4">Ask another question</h2>
+        <h2 className="text-lg font-semibold mb-4 text-black dark:text-white">
+          Ask another question
+        </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -39,7 +41,7 @@ const AskQuestionModal = ({ open, onClose }) => {
             placeholder="Your name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-black"
+            className="text-black dark:text-white w-full px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-black"
             required
           />
 
@@ -49,7 +51,7 @@ const AskQuestionModal = ({ open, onClose }) => {
             placeholder="Your email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-black"
+            className="text-black dark:text-white w-full px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-black"
             required
           />
 
@@ -59,7 +61,7 @@ const AskQuestionModal = ({ open, onClose }) => {
             rows="4"
             value={formData.question}
             onChange={handleChange}
-            className="w-full px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-black resize-none"
+            className="text-black dark:text-white w-full px-4 py-2 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-black resize-none"
             required
           />
 
