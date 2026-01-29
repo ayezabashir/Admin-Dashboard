@@ -1,37 +1,64 @@
 import { BiBell, BiMoon, BiSearch, BiShoppingBag, BiSun } from "react-icons/bi";
 import manimg from "/person.jpg";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import NotificationModalBox from "./NotificationModalBox";
 import { themeContext } from "../context/themeContext";
 import AdminModalBox from "./AdminModalBox";
+import OrdersModalBox from "./OrdersModalBox";
 
 const MainHeader = () => {
   const value = useContext(themeContext);
+  const headerRef = useRef(null);
   const [showNotificationModal, setShowNotificationModal] = useState(false);
   const [showAdminModal, setShowAdminModal] = useState(false);
+  const [showOrdersModal, setShowOrdersModal] = useState(false);
   const toggleMode = () => {
     const newMode = value.mode === "light" ? "dark" : "light";
     value.setMode(newMode);
     document.documentElement.classList.toggle("dark", newMode === "dark");
     localStorage.setItem("mode", newMode);
   };
-
+  const handleOrders = () => {
+    setShowOrdersModal(!showOrdersModal);
+    setShowNotificationModal(false);
+    setShowAdminModal(false);
+  };
   useEffect(() => {
     const storedMode = localStorage.getItem("mode") || "light";
     value.setMode(storedMode);
     document.documentElement.classList.toggle("dark", storedMode === "dark");
   }, []);
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (headerRef.current && !headerRef.current.contains(e.target)) {
+        setShowNotificationModal(false);
+        setShowOrdersModal(false);
+        setShowAdminModal(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleNotifications = () => {
     setShowNotificationModal(!showNotificationModal);
-    setShowAdminModal(false)
+    setShowAdminModal(false);
+    setShowOrdersModal(false);
   };
-  const handleAdmin = ()=>{
-    setShowAdminModal(!showAdminModal)
-    setShowNotificationModal(false)
-  }
+  const handleAdmin = () => {
+    setShowAdminModal(!showAdminModal);
+    setShowNotificationModal(false);
+    setShowOrdersModal(false);
+  };
   return (
-    <header className="bg-white dark:bg-black h-18 flex items-center justify-between p-4 transition-all duration-300 ease-in-out">
+    <header
+      ref={headerRef}
+      className="bg-white dark:bg-black h-18 flex items-center justify-between p-4 transition-all duration-300 ease-in-out"
+    >
       <div className="flex justify-between items-center border border-gray-400 rounded-xl p-2 ">
         <input
           className="outline-0 text-sm text-gray-900 dark:text-gray-200"
@@ -60,9 +87,18 @@ const MainHeader = () => {
             </div>
           )}
         </div>
-        <div>
-          <BiShoppingBag className="text-xl cursor-pointer text-gray-900 dark:text-gray-200" />
+        <div className="relative flex justify-center">
+          <button onClick={handleOrders}>
+            <BiShoppingBag className="text-xl cursor-pointer text-gray-900 dark:text-gray-200" />
+          </button>
+
+          {showOrdersModal && (
+            <div className="absolute top-10 right-0">
+              <OrdersModalBox />
+            </div>
+          )}
         </div>
+
         <div className="relative cursor-pointer" onClick={handleAdmin}>
           <div className="flex items-center justify-center gap-3">
             <img
@@ -81,9 +117,11 @@ const MainHeader = () => {
               </p>
             </div>
           </div>
-          {showAdminModal && <div className="absolute top-13 right-0">
-            <AdminModalBox />
-            </div>}
+          {showAdminModal && (
+            <div className="absolute top-13 right-0">
+              <AdminModalBox />
+            </div>
+          )}
         </div>
       </div>
     </header>
