@@ -23,6 +23,16 @@ const MainHeader = () => {
     setShowNotificationModal(false);
     setShowAdminModal(false);
   };
+  const handleNotifications = () => {
+    setShowNotificationModal(!showNotificationModal);
+    setShowAdminModal(false);
+    setShowOrdersModal(false);
+  };
+  const handleAdmin = () => {
+    setShowAdminModal(!showAdminModal);
+    setShowNotificationModal(false);
+    setShowOrdersModal(false);
+  };
   useEffect(() => {
     const storedMode = localStorage.getItem("mode") || "light";
     value.setMode(storedMode);
@@ -36,24 +46,11 @@ const MainHeader = () => {
         setShowAdminModal(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
-  const handleNotifications = () => {
-    setShowNotificationModal(!showNotificationModal);
-    setShowAdminModal(false);
-    setShowOrdersModal(false);
-  };
-  const handleAdmin = () => {
-    setShowAdminModal(!showAdminModal);
-    setShowNotificationModal(false);
-    setShowOrdersModal(false);
-  };
   return (
     <header
       ref={headerRef}
@@ -78,9 +75,13 @@ const MainHeader = () => {
           )}
         </button>
         <div className="relative flex justify-center">
-          <button onClick={handleNotifications}>
+          <button
+            onMouseDown={(e) => e.stopPropagation()}
+            onClick={handleNotifications}
+          >
             <BiBell className="text-xl cursor-pointer text-gray-900 dark:text-gray-200" />
           </button>
+
           {showNotificationModal && (
             <div className="absolute top-10 right-0">
               <NotificationModalBox />
@@ -88,7 +89,10 @@ const MainHeader = () => {
           )}
         </div>
         <div className="relative flex justify-center">
-          <button onClick={handleOrders}>
+          <button
+            onMouseDown={(e) => e.stopPropagation()}
+            onClick={handleOrders}
+          >
             <BiShoppingBag className="text-xl cursor-pointer text-gray-900 dark:text-gray-200" />
           </button>
 
@@ -99,7 +103,11 @@ const MainHeader = () => {
           )}
         </div>
 
-        <div className="relative cursor-pointer" onClick={handleAdmin}>
+        <div
+          className="relative cursor-pointer"
+          onMouseDown={(e) => e.stopPropagation()}
+          onClick={handleAdmin}
+        >
           <div className="flex items-center justify-center gap-3">
             <img
               width="35"
