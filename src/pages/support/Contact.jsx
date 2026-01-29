@@ -8,11 +8,9 @@ const Contact = () => {
     subject: "",
     message: "",
   });
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Contact Form Data:", formData);
@@ -23,13 +21,12 @@ const Contact = () => {
       message: "",
     });
   };
-
   return (
     <div className="space-y-8">
-        <PageHeader
-          headerTitle="Contact Us"
-          headerSubtitle="Contact Us through following."
-        />
+      <PageHeader
+        headerTitle="Contact Us"
+        headerSubtitle="Contact us through the following channels"
+      />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="px-4 py-2 rounded-xl border text-black dark:text-white bg-white dark:bg-black dark:border-gray-800">
           <p className="text-xs text-gray-500">Email</p>
@@ -42,6 +39,32 @@ const Contact = () => {
         <div className="px-4 py-2 rounded-xl border text-black dark:text-white bg-white dark:bg-black dark:border-gray-800">
           <p className="text-xs text-gray-500">Response Time</p>
           <p className="font-medium">Within 24 hours</p>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="px-4 py-2 rounded-xl border bg-white dark:bg-black dark:border-gray-800">
+          <p className="font-medium text-black dark:text-white">
+            General Questions
+          </p>
+          <p className="text-xs text-gray-500">
+            Product info, features, or account guidance
+          </p>
+        </div>
+        <div className="px-4 py-2 rounded-xl border bg-white dark:bg-black dark:border-gray-800">
+          <p className="font-medium text-black dark:text-white">
+            Technical Issues
+          </p>
+          <p className="text-xs text-gray-500">
+            Bugs, errors, or system-related problems
+          </p>
+        </div>
+        <div className="px-4 py-2 rounded-xl border bg-white dark:bg-black dark:border-gray-800">
+          <p className="font-medium text-black dark:text-white">
+            Business Inquiries
+          </p>
+          <p className="text-xs text-gray-500">
+            Partnerships or professional requests
+          </p>
         </div>
       </div>
       <form
@@ -92,6 +115,9 @@ const Contact = () => {
         >
           Send Message
         </button>
+        <p className="text-xs text-gray-500 pt-2">
+          Our support team usually responds within 24 hours on business days.
+        </p>
       </form>
     </div>
   );
