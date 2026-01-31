@@ -13,6 +13,7 @@ import Help from "./pages/support/Help";
 import Contact from "./pages/support/Contact";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
+import SignUp from "./pages/SignUp";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -22,6 +23,7 @@ function App() {
       <themeContext.Provider value={{ mode, setMode }}>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="signup" element={<SignUp/>} />
           <Route
             element={
               <ProtectedRoute>
