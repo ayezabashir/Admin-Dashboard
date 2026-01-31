@@ -11,6 +11,8 @@ import Returns from "./pages/orders/Returns";
 import OrderTracking from "./pages/orders/OrderTracking";
 import Help from "./pages/support/Help";
 import Contact from "./pages/support/Contact";
+import Login from "./pages/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -19,8 +21,14 @@ function App() {
     <BrowserRouter>
       <themeContext.Provider value={{ mode, setMode }}>
         <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Navigate to="/dashboard" replace />} />
+          <Route path="/" element={<Login />} />
+          <Route
+            element={
+              <ProtectedRoute>
+                <Layout />
+              </ProtectedRoute>
+            }
+          >
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="products" element={<Products />} />
             <Route path="customers" element={<Customers />} />
@@ -34,6 +42,7 @@ function App() {
               <Route path="contact" element={<Contact />} />
             </Route>
           </Route>
+          <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </themeContext.Provider>
     </BrowserRouter>
