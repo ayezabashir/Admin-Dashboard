@@ -12,41 +12,43 @@ import OrderTracking from "./pages/orders/OrderTracking";
 import Help from "./pages/support/Help";
 import Contact from "./pages/support/Contact";
 import Login from "./pages/Login";
+import { AuthProvider } from "./context/auth";
 import ProtectedRoute from "./components/ProtectedRoute";
-import SignUp from "./pages/SignUp";
 
 function App() {
   const [mode, setMode] = useState("light");
 
   return (
     <BrowserRouter>
-      <themeContext.Provider value={{ mode, setMode }}>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="signup" element={<SignUp/>} />
-          <Route
-            element={
-              <ProtectedRoute>
-                <Layout />
-              </ProtectedRoute>
-            }
-          >
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="products" element={<Products />} />
-            <Route path="customers" element={<Customers />} />
-            <Route path="orders">
-              <Route path="all" element={<AllOrders />} />
-              <Route path="returns" element={<Returns />} />
-              <Route path="tracking" element={<OrderTracking />} />
+      <AuthProvider>
+        <themeContext.Provider value={{ mode, setMode }}>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route
+              element={
+                <ProtectedRoute role="admin">
+                  <Layout />
+                </ProtectedRoute>
+              }
+            >
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="products" element={<Products />} />
+              <Route path="customers" element={<Customers />} />
+              <Route path="orders">
+                <Route path="all" element={<AllOrders />} />
+                <Route path="returns" element={<Returns />} />
+                <Route path="tracking" element={<OrderTracking />} />
+              </Route>
+              <Route path="support">
+                <Route path="help" element={<Help />} />
+                <Route path="contact" element={<Contact />} />
+              </Route>
             </Route>
-            <Route path="support">
-              <Route path="help" element={<Help />} />
-              <Route path="contact" element={<Contact />} />
-            </Route>
-          </Route>
-          <Route path="*" element={<Navigate to="/login" />} />
-        </Routes>
-      </themeContext.Provider>
+
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </themeContext.Provider>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

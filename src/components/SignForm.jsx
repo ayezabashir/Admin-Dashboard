@@ -1,21 +1,16 @@
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 
 const SignForm = ({
   title,
   submitText,
   onSubmit,
   showName = false,
-  footerText,
-  footerActionText,
-  footerActionPath,
 }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const nav = useNavigate();
   return (
     <form
       className="h-screen flex items-center justify-center"
@@ -74,16 +69,6 @@ const SignForm = ({
         >
           {submitText}
         </button>
-        <div className="flex justify-center items-center gap-2">
-          <p>{footerText}</p>
-          <button
-            type="button"
-            onClick={() => nav(footerActionPath)}
-            className="text-lg cursor-pointer font-semibold hover:underline"
-          >
-            {footerActionText}
-          </button>
-        </div>
       </div>
     </form>
   );
