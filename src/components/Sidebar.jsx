@@ -7,9 +7,9 @@ import {
   RiUser3Line,
   RiCustomerService2Line,
   RiMenuFoldLine,
-  RiMenuUnfoldLine,
 } from "react-icons/ri";
 import { BiChevronDown } from "react-icons/bi";
+import { CgClose } from "react-icons/cg";
 
 const sidebarItems = [
   {
@@ -74,9 +74,9 @@ const Sidebar = () => {
             setOpen(!open);
             setOpenDropdown(null);
           }}
-          className="text-xl text-zinc-600 dark:text-zinc-300"
+          className="text-xl text-zinc-600 dark:text-zinc-300 cursor-pointer"
         >
-          {open ? <RiMenuFoldLine /> : <RiMenuUnfoldLine />}
+          {open ? <RiMenuFoldLine /> : <CgClose className="ml-1" />}
         </button>
       </div>
 
