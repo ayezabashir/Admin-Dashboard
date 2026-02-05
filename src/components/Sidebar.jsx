@@ -10,6 +10,7 @@ import {
 } from "react-icons/ri";
 import { BiChevronDown } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
+import logo from "/logo.png";
 
 const sidebarItems = [
   {
@@ -46,7 +47,7 @@ const sidebarItems = [
     icon: RiCustomerService2Line,
     subTabs: [
       { label: "Help", route: "/support/help" },
-      { label: "Contact", route: "/support/contact" }
+      { label: "Contact", route: "/support/contact" },
     ],
   },
 ];
@@ -66,9 +67,11 @@ const Sidebar = () => {
       ${open ? "w-64" : "w-20"}`}
     >
       <div className="flex items-center justify-between p-4">
-        <h1 className={`text-xl font-bold text-zinc-600 dark:text-zinc-300 ${open ? "block" : "hidden"}`}>
-          Dashboard
-        </h1>
+        <div
+          className={`text-xl font-bold text-zinc-600 dark:text-zinc-300 ${open ? "block" : "hidden"}`}
+        >
+          <img width="50" height="50" src={logo} alt="" />
+        </div>
         <button
           onClick={() => {
             setOpen(!open);

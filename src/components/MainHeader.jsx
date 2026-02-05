@@ -118,10 +118,10 @@ const MainHeader = () => {
             />
             <div className="flex flex-col items-start ">
               <p className="text-sm font-semibold text-gray-900 dark:text-gray-200">
-                Paul Wesley
+                Ayeza Bashir
               </p>
               <p className="text-sm text-gray-900 dark:text-gray-200">
-                Web Designer
+                Web Developer
               </p>
             </div>
           </div>
