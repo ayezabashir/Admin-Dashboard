@@ -20,7 +20,7 @@
             "name": "Alina Raza",
             "email": "alina.raza@yahoo.com",
             "avatar": "/person.jpg",
-            "orders": 5,
+            "orders": 51,
             "status": "active",
             "type": "new"
         },
@@ -29,7 +29,7 @@
             "name": "Sara Ahmed",
             "email": "sara.ahmed@hotmail.com",
             "avatar": "/person.jpg",
-            "orders": 1,
+            "orders": 13,
             "status": "inactive",
             "type": "new"
         },
@@ -41,6 +41,61 @@
             "orders": 22,
             "status": "blocked",
             "type": "vip"
+        },
+        {
+            "id": 5,
+            "name": "Rozeena Khan",
+            "email": "rozeena.khan@gmail.com",
+            "avatar": "/person.jpg",
+            "orders": 28,
+            "status": "active",
+            "type": "vip"
+        },
+        {
+            "id": 6,
+            "name": "Shamyl Raza",
+            "email": "shamyl.raza@yahoo.com",
+            "avatar": "/person.jpg",
+            "orders": 21,
+            "status": "active",
+            "type": "new"
+        },
+        {
+            "id": 7,
+            "name": "Laraib Ahmed",
+            "email": "laraib.ahmed@hotmail.com",
+            "avatar": "/person.jpg",
+            "orders": 11,
+            "status": "inactive",
+            "type": "new"
+        },
+        {
+            "id": 8,
+            "name": "Amna Malik",
+            "email": "amna.malik@gmail.com",
+            "avatar": "/person.jpg",
+            "orders": 22,
+            "status": "blocked",
+            "type": "vip"
+        },
+        {
+            "id": 9,
+            "name": "Saira Gondhal",
+            "email": "saira.ahmed@hotmail.com",
+            "avatar": "/person.jpg",
+            "orders": 15,
+            "status": "inactive",
+            "type": "new"
+        },
+        {
+            "id": 10,
+            "name": "James Malik",
+            "email": "james.malik@gmail.com",
+            "avatar": "/person.jpg",
+            "orders": 22,
+            "status": "blocked",
+            "type": "vip"
         }
+
     ]
 }

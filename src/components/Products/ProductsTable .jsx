@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BiPencil, BiTrash } from "react-icons/bi";
 import AddProducts from "./AddProducts";
+import Pagination from "../Pagination";
 const statusStyles = {
   active: "bg-green-100 text-green-700",
   low_stock: "bg-yellow-100 text-yellow-700",
@@ -96,21 +97,11 @@ const ProductsTable = ({ products, setProducts, categories }) => {
           ))}
         </tbody>
       </table>
-      <div className="flex justify-start items-center gap-4 ml-3 my-5">
-        <button
-          className="px-3 py-1 cursor-pointer border border-gray-400 rounded-md"
-          onClick={handlePrevPage}
-        >
-          Prev
-        </button>
-        <p>{currPage}</p>
-        <button
-          className="px-3 py-1 cursor-pointer border border-gray-400 rounded-md"
-          onClick={handleNextPage}
-        >
-          Next
-        </button>
-      </div>
+      <Pagination
+        handlePrevPage={handlePrevPage}
+        currPage={currPage}
+        handleNextPage={handleNextPage}
+      />
       {openEditProduct && (
         <AddProducts
           setOpenEditProduct={setOpenEditProduct}

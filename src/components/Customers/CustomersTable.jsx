@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BiPencil, BiTrash } from "react-icons/bi";
 import AddCustomerModal from "./AddCustomerModal";
+import Pagination from "../Pagination";
 const statusStyles = {
   active: "bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-100",
   inactive: "bg-gray-100 text-gray-700 dark:bg-gray-600 dark:text-gray-200",
@@ -13,14 +14,28 @@ const typeStyles = {
   vip: "bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-100",
 };
 const CustomersTable = ({ customers, setCustomers }) => {
+  const [currPage, setCurrPage] = useState(1);
   const [openEditModal, setOpenEditModal] = useState(false);
   const [selectedCustomer, setSelectedCustomer] = useState(null);
+  const custPerPage = 4;
+  const totalPages = Math.ceil(customers.length/custPerPage);
+  const indexLast = currPage * custPerPage;
+  const firstIndex = indexLast - custPerPage;
+  const currCustomers = customers.slice(firstIndex, indexLast)
   const handleEditCustomer = (customerId) => {
     const selCustomer = customers.find(
       (customer) => customer.id === customerId,
     );
     setSelectedCustomer(selCustomer);
     setOpenEditModal(true);
+  };
+  const handlePrevPage = () => {
+    setCurrPage((prev) => prev - 1);
+  };
+  const handleNextPage = () => {
+    if (currPage < totalPages) {
+      setCurrPage((prev) => prev + 1);
+    }
   };
   const handleDeleteCustomer = (customerId) => {
     const deletedCustomer = customers.filter(
@@ -43,7 +58,7 @@ const CustomersTable = ({ customers, setCustomers }) => {
         </thead>
 
         <tbody>
-          {customers.map((c) => (
+          {currCustomers.map((c) => (
             <tr
               key={c.id}
               className="border-t border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-zinc-900 transition"
@@ -94,6 +109,11 @@ const CustomersTable = ({ customers, setCustomers }) => {
           ))}
         </tbody>
       </table>
+      <Pagination
+        handlePrevPage={handlePrevPage}
+        currPage={currPage}
+        handleNextPage={handleNextPage}
+      />
       {openEditModal && (
         <AddCustomerModal
           setOpenEditModal={setOpenEditModal}
