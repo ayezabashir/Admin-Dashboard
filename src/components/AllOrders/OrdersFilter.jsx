@@ -20,10 +20,10 @@ const OrdersFilters = ({ search, setSearch, status, setStatus }) => {
         className="px-4 py-2 border rounded-xl outline-0 bg-white dark:bg-black border-gray-300 dark:border-gray-700"
       >
         <option value="">All Status</option>
-        <option value="pending">Pending</option>
-        <option value="shipped">Shipped</option>
-        <option value="delivered">Delivered</option>
-        <option value="cancelled">Cancelled</option>
+        <option value="pending">pending</option>
+        <option value="shipped">shipped</option>
+        <option value="delivered">delivered</option>
+        <option value="cancelled">cancelled</option>
       </select>
     </div>
   );

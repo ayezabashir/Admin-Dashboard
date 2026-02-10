@@ -1,7 +1,7 @@
 [
     {
         "id": "#ORD-1021",
-        "customer": "Ayesha Khan",
+        "customer": "Ayeza Bashir",
         "date": "2025-01-12",
         "amount": 1450,
         "payment": "Paid",
@@ -9,7 +9,7 @@
     },
     {
         "id": "#ORD-1022",
-        "customer": "Alina Raza",
+        "customer": "Aqsa Raza",
         "date": "2025-01-14",
         "amount": 320,
         "payment": "Pending",
@@ -17,7 +17,7 @@
     },
     {
         "id": "#ORD-1023",
-        "customer": "Zara Ahmed",
+        "customer": "Mariam Ahmed",
         "date": "2025-01-15",
         "amount": 75,
         "payment": "Paid",
@@ -25,7 +25,71 @@
     },
     {
         "id": "#ORD-1024",
+        "customer": "Sana Malik",
+        "date": "2025-01-16",
+        "amount": 2100,
+        "payment": "Refunded",
+        "status": "cancelled"
+    },
+    {
+        "id": "#ORD-1025",
+        "customer": "Ayesha Khan",
+        "date": "2025-01-12",
+        "amount": 1450,
+        "payment": "Paid",
+        "status": "delivered"
+    },
+    {
+        "id": "#ORD-1026",
+        "customer": "Alina Raza",
+        "date": "2025-01-14",
+        "amount": 320,
+        "payment": "Pending",
+        "status": "pending"
+    },
+    {
+        "id": "#ORD-1027",
+        "customer": "Zara Ahmed",
+        "date": "2025-01-15",
+        "amount": 75,
+        "payment": "Paid",
+        "status": "shipped"
+    },
+    {
+        "id": "#ORD-1028",
         "customer": "Sonia Malik",
+        "date": "2025-01-16",
+        "amount": 2100,
+        "payment": "Refunded",
+        "status": "cancelled"
+    },
+    {
+        "id": "#ORD-1029",
+        "customer": "Rimla Khan",
+        "date": "2025-01-12",
+        "amount": 1450,
+        "payment": "Paid",
+        "status": "delivered"
+    },
+    {
+        "id": "#ORD-1030",
+        "customer": "Sanam Raza",
+        "date": "2025-01-14",
+        "amount": 320,
+        "payment": "Pending",
+        "status": "pending"
+    },
+    {
+        "id": "#ORD-1031",
+        "customer": "Shamyl Ahmed",
+        "date": "2025-01-15",
+        "amount": 75,
+        "payment": "Paid",
+        "status": "shipped"
+    },
+    {
+        "id": "#ORD-1032",
+        "customer": "Mehwish Malik",
         "date": "2025-01-16",
         "amount": 2100,
         "payment": "Refunded",

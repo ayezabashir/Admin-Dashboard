@@ -14,7 +14,10 @@ const AllOrders = () => {
         .toLowerCase()
         .includes(search.toLowerCase());
 
-      const matchStatus = status === "" || order.status === status;
+      const matchStatus =
+        status === "" ||
+        order.status.toLowerCase().trim() === status.toLowerCase().trim();
+
 
       return matchSearch && matchStatus;
     });
