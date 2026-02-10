@@ -1,12 +1,28 @@
-import { BiDotsVerticalRounded } from "react-icons/bi";
-
+import { useState } from "react";
+import { BiPencil, BiTrash } from "react-icons/bi";
+import AddProducts from "./AddProducts";
 const statusStyles = {
   active: "bg-green-100 text-green-700",
   low_stock: "bg-yellow-100 text-yellow-700",
   out_of_stock: "bg-red-100 text-red-700",
 };
 
-const ProductsTable = ({ products }) => {
+const ProductsTable = ({ products, setProducts, categories }) => {
+  const [openEditProduct, setOpenEditProduct] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const handleEdit = (productId) => {
+   const productToEdit= products.find((product)=>product.id === productId)    
+   setSelectedProduct(productToEdit)
+   setOpenEditProduct(true)
+  };
+  const handleDelete = (productId) => {
+    const updatedProducts = products.filter(
+      (product) => product.id !== productId,
+    );
+    setProducts(updatedProducts);
+  };
+
   return (
     <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl overflow-x-auto">
       <table className="w-full text-sm">
@@ -49,14 +65,31 @@ const ProductsTable = ({ products }) => {
                 </span>
               </td>
               <td className="p-4 text-right">
-                <button className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-zinc-800">
-                  <BiDotsVerticalRounded />
+                <button
+                  onClick={() => handleEdit(product.id)}
+                  className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-zinc-800"
+                >
+                  <BiPencil className="text-green-500 text-lg" />
+                </button>
+                <button
+                  onClick={() => handleDelete(product.id)}
+                  className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-zinc-800"
+                >
+                  <BiTrash className="text-red-500 text-lg" />
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      {openEditProduct && (
+        <AddProducts
+          setOpenEditProduct={setOpenEditProduct}
+          selectedProduct={selectedProduct}
+          setProducts={setProducts}
+          categories={categories}
+        />
+      )}
     </div>
   );
 };

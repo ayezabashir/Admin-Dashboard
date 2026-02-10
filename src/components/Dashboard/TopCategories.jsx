@@ -1,6 +1,5 @@
 import Chart from "react-apexcharts";
 import { BiTrophy } from "react-icons/bi";
-import { GiChampions } from "react-icons/gi";
 
 const TopCategories = ({ data }) => {
   const series = data.map((item) => item.percentage);

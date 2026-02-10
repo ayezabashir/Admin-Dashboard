@@ -8,7 +8,7 @@ const Products = () => {
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState("");
   const { categories } = producstData;
-  const [products, setProducts]= useState(producstData.products);
+  const [products, setProducts] = useState(producstData.products);
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
@@ -32,7 +32,11 @@ const Products = () => {
         status={status}
         setStatus={setStatus}
       />
-      <ProductsTable products={filteredProducts} />
+      <ProductsTable
+        products={filteredProducts}
+        setProducts={setProducts}
+        categories={categories}
+      />
     </div>
   );
 };

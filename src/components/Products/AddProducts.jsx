@@ -1,14 +1,20 @@
 import { useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
 
-const AddProducts = ({ setOpen, setProducts, categories }) => {
+const AddProducts = ({
+  selectedProduct,
+  setOpenEditProduct,
+  setOpen,
+  setProducts,
+  categories,
+}) => {
   const [form, setForm] = useState({
-    name: "",
-    category: "",
-    price: "",
-    stock: "",
-    status: "active",
-    image: null,
+    name: selectedProduct?.name || "",
+    category: selectedProduct?.category || "",
+    price: selectedProduct?.price || "",
+    stock: selectedProduct?.stock || "",
+    status: selectedProduct?.status || "active",
+    image: selectedProduct?.image || null,
   });
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -27,12 +33,22 @@ const AddProducts = ({ setOpen, setProducts, categories }) => {
       price: Number(form.price),
       stock: Number(form.stock),
       status: form.status,
-      image: form.image
-        ? URL.createObjectURL(form.image)
-        : "",
+      image:
+        form.image instanceof File
+          ? URL.createObjectURL(form.image)
+          : form.image || "",
     };
-    setProducts((prev) => [newProduct, ...prev]);
-    setOpen(false);
+    if (selectedProduct) {
+      setProducts((prev) =>
+        prev.map((p) =>
+          p.id === selectedProduct.id ? { ...p, ...newProduct } : p,
+        ),
+      );
+    } else {
+      setProducts((prev) => [newProduct, ...prev]);
+    }
+    setOpen?.(false);
+    setOpenEditProduct?.(false);
     setForm({
       name: "",
       category: "",
@@ -42,13 +58,17 @@ const AddProducts = ({ setOpen, setProducts, categories }) => {
       image: null,
     });
   };
+  const handleCloseModal = () => {
+    setOpen?.(false);
+    setOpenEditProduct?.(false);
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
       <div className="bg-white dark:bg-zinc-800  w-full max-w-md rounded-xl p-6">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold">Add New Product</h2>
-          <button onClick={() => setOpen(false)}>
+          <button onClick={handleCloseModal}>
             <RiCloseLine className="text-xl" />
           </button>
         </div>
@@ -64,7 +84,11 @@ const AddProducts = ({ setOpen, setProducts, categories }) => {
           </div>
           {form.image && (
             <img
-              src={URL.createObjectURL(form.image)}
+              src={
+                form.image instanceof File
+                  ? URL.createObjectURL(form.image)
+                  : form.image
+              }
               alt="Preview"
               className="h-24 w-24 object-cover rounded-lg border"
             />
