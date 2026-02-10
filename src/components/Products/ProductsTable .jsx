@@ -10,17 +10,31 @@ const statusStyles = {
 const ProductsTable = ({ products, setProducts, categories }) => {
   const [openEditProduct, setOpenEditProduct] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [currPage, setCurrPage] = useState(1);
+  const productsPerPage = 4;
+  const totalPages = Math.ceil(products.length / productsPerPage);
+  const indexOfLastProduct = currPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
   const handleEdit = (productId) => {
-   const productToEdit= products.find((product)=>product.id === productId)    
-   setSelectedProduct(productToEdit)
-   setOpenEditProduct(true)
+    const productToEdit = products.find((product) => product.id === productId);
+    setSelectedProduct(productToEdit);
+    setOpenEditProduct(true);
   };
   const handleDelete = (productId) => {
     const updatedProducts = products.filter(
       (product) => product.id !== productId,
     );
     setProducts(updatedProducts);
+  };
+  const handlePrevPage = () => {
+    setCurrPage((prev) => prev - 1);
+  };
+  const handleNextPage = () => {
+    if (currPage < totalPages) {
+      setCurrPage((prev) => prev + 1);
+    }
   };
 
   return (
@@ -38,7 +52,7 @@ const ProductsTable = ({ products, setProducts, categories }) => {
         </thead>
 
         <tbody>
-          {products.map((product) => (
+          {currProducts.map((product) => (
             <tr
               key={product.id}
               className="border-t border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-zinc-900 transition"
@@ -82,6 +96,21 @@ const ProductsTable = ({ products, setProducts, categories }) => {
           ))}
         </tbody>
       </table>
+      <div className="flex justify-start items-center gap-4 ml-3 my-5">
+        <button
+          className="px-3 py-1 cursor-pointer border border-gray-400 rounded-md"
+          onClick={handlePrevPage}
+        >
+          Prev
+        </button>
+        <p>{currPage}</p>
+        <button
+          className="px-3 py-1 cursor-pointer border border-gray-400 rounded-md"
+          onClick={handleNextPage}
+        >
+          Next
+        </button>
+      </div>
       {openEditProduct && (
         <AddProducts
           setOpenEditProduct={setOpenEditProduct}

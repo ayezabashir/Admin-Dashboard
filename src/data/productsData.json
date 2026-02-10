@@ -61,6 +61,61 @@
             "status": "active",
             "image": "/products/book.jpg",
             "createdAt": "2024-08-15"
+        },
+        {
+            "id": 6,
+            "name": "Headphones",
+            "category": "Electronics",
+            "price": 100,
+            "stock": 30,
+            "rating": 3.5,
+            "status": "active",
+            "image": "/products/headphones.jpg",
+            "createdAt": "2024-12-01"
+        },
+        {
+            "id": 7,
+            "name": "Watch",
+            "category": "Accessories",
+            "price": 67,
+            "stock": 0,
+            "rating": 4.0,
+            "status": "out_of_stock",
+            "image": "/products/smartwatch.jpg",
+            "createdAt": "2024-11-18"
+        },
+        {
+            "id": 8,
+            "name": "Denim Jacket",
+            "category": "Fashion",
+            "price": 350,
+            "stock": 12,
+            "rating": 3.8,
+            "status": "active",
+            "image": "/products/jacket.jpg",
+            "createdAt": "2024-10-05"
+        },
+        {
+            "id": 9,
+            "name": "Fryer",
+            "category": "Home Appliances",
+            "price": 39,
+            "stock": 6,
+            "rating": 3.3,
+            "status": "low_stock",
+            "image": "/products/airfryer.jpg",
+            "createdAt": "2024-09-22"
+        },
+        {
+            "id": 10,
+            "name": "Python Book",
+            "category": "Books",
+            "price": 45,
+            "stock": 48,
+            "rating": 4.5,
+            "status": "active",
+            "image": "/products/book.jpg",
+            "createdAt": "2024-08-15"
         }
     ]
 }
