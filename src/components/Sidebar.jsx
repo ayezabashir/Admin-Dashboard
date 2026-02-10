@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   RiDashboardLine,
   RiShoppingBag3Line,
@@ -10,7 +10,9 @@ import {
 } from "react-icons/ri";
 import { BiChevronDown } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
-import logo from "/logo.png";
+import dark_logo from "/dark_logo.png";
+import light_logo from "/light_logo.png";
+import { themeContext } from "../context/themeContext";
 
 const sidebarItems = [
   {
@@ -54,6 +56,7 @@ const sidebarItems = [
 
 const Sidebar = () => {
   const location = useLocation();
+  const { mode } = useContext(themeContext);
   const [open, setOpen] = useState(true);
   const [openDropdown, setOpenDropdown] = useState(null);
 
@@ -70,7 +73,12 @@ const Sidebar = () => {
         <div
           className={`text-xl font-bold text-zinc-600 dark:text-zinc-300 ${open ? "block" : "hidden"}`}
         >
-          <img width="50" height="50" src={logo} alt="" />
+          <img
+            width="50"
+            height="50"
+            src={mode === "dark" ? dark_logo : light_logo}
+            alt=""
+          />
         </div>
         <button
           onClick={() => {
