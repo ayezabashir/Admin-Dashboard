@@ -29,7 +29,7 @@ const Customers = () => {
         typeFilter={typeFilter}
         setTypeFilter={setTypeFilter}
       />
-      <CustomersTable customers={filteredCustomers} />
+      <CustomersTable customers={filteredCustomers} setCustomers={setCustomers} />
     </div>
   );
 };

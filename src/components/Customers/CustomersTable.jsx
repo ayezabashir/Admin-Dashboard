@@ -1,4 +1,6 @@
-import { BiDotsVerticalRounded } from "react-icons/bi";
+import { useState } from "react";
+import { BiPencil, BiTrash } from "react-icons/bi";
+import AddCustomerModal from "./AddCustomerModal";
 const statusStyles = {
   active: "bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-100",
   inactive: "bg-gray-100 text-gray-700 dark:bg-gray-600 dark:text-gray-200",
@@ -10,7 +12,22 @@ const typeStyles = {
     "bg-yellow-100 text-yellow-700 dark:bg-yellow-800 dark:text-yellow-100",
   vip: "bg-purple-100 text-purple-700 dark:bg-purple-800 dark:text-purple-100",
 };
-const CustomersTable = ({ customers }) => {
+const CustomersTable = ({ customers, setCustomers }) => {
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const [selectedCustomer, setSelectedCustomer] = useState(null);
+  const handleEditCustomer = (customerId) => {
+    const selCustomer = customers.find(
+      (customer) => customer.id === customerId,
+    );
+    setSelectedCustomer(selCustomer);
+    setOpenEditModal(true);
+  };
+  const handleDeleteCustomer = (customerId) => {
+    const deletedCustomer = customers.filter(
+      (customer) => customer.id !== customerId,
+    );
+    setCustomers(deletedCustomer);
+  };
   return (
     <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl overflow-x-auto">
       <table className="w-full text-sm">
@@ -60,14 +77,30 @@ const CustomersTable = ({ customers }) => {
                 </span>
               </td>
               <td className="p-4 text-right">
-                <button className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-zinc-800">
-                  <BiDotsVerticalRounded />
+                <button
+                  onClick={() => handleEditCustomer(c.id)}
+                  className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-zinc-800"
+                >
+                  <BiPencil className="text-green-500 text-lg" />
+                </button>
+                <button
+                  onClick={() => handleDeleteCustomer(c.id)}
+                  className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-zinc-800"
+                >
+                  <BiTrash className="text-red-500 text-lg" />
                 </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      {openEditModal && (
+        <AddCustomerModal
+          setOpenEditModal={setOpenEditModal}
+          selectedCustomer={selectedCustomer}
+          setCustomers={setCustomers}
+        />
+      )}
     </div>
   );
 };

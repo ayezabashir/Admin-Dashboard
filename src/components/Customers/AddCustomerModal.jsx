@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
 
-const AddCustomerModal = ({ setOpen, setCustomers }) => {
+const AddCustomerModal = ({
+  selectedCustomer,
+  setOpenEditModal,
+  setOpen,
+  setCustomers,
+}) => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    avatar: null,
-    orders: 0,
-    status: "active",
-    type: "new",
+    name: selectedCustomer?.name || "",
+    email: selectedCustomer?.email || "",
+    avatar: selectedCustomer?.avatar || null,
+    orders: selectedCustomer?.orders || 0,
+    status: selectedCustomer?.status || "active",
+    type: selectedCustomer?.type || "new",
   });
   const [avatarPreview, setAvatarPreview] = useState(null);
 
@@ -24,23 +29,39 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setCustomers((prev) => [
-      ...prev,
-      {
-        id: prev.length + 1,
-        ...formData,
-        orders: Number(formData.orders),
-        avatar: formData.avatar ? URL.createObjectURL(formData.avatar) : "",
-      },
-    ]);
-    setOpen(false);
+
+    const updatedCustomer = {
+      id: selectedCustomer ? selectedCustomer.id : Date.now(),
+      ...formData,
+      orders: Number(formData.orders),
+      avatar:
+        formData.avatar instanceof File
+          ? URL.createObjectURL(formData.avatar)
+          : formData.avatar || "",
+    };
+
+    if (selectedCustomer) {
+      setCustomers((prev) =>
+        prev.map((customer) =>
+          customer.id === selectedCustomer.id ? updatedCustomer : customer,
+        ),
+      );
+    } else {
+      setCustomers((prev) => [updatedCustomer, ...prev]);
+    }
+    setOpen?.(false);
+    setOpenEditModal?.(false);
+  };
+  const handleModalClose = () => {
+    setOpen?.(false);
+    setOpenEditModal?.(false);
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
       <div className="bg-white dark:bg-zinc-800 rounded-xl p-6 w-full max-w-md relative">
         <button
-          onClick={() => setOpen(false)}
+          onClick={handleModalClose}
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:hover:text-white"
         >
           <RiCloseLine size={24} />
@@ -81,9 +102,12 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
               onChange={handleChange}
               className="w-full border rounded-lg px-3 py-2"
             />
-            {avatarPreview && (
+            {(avatarPreview || formData.avatar) && (
               <img
-                src={avatarPreview}
+                src={
+                  avatarPreview ||
+                  (typeof formData.avatar === "string" ? formData.avatar : "")
+                }
                 alt="Avatar Preview"
                 className="mt-2 w-20 h-20 rounded-full object-cover"
               />
@@ -122,7 +146,9 @@ const AddCustomerModal = ({ setOpen, setCustomers }) => {
             type="submit"
             className="w-full bg-black text-white dark:bg-white dark:text-black px-4 py-2 rounded-xl font-semibold"
           >
-            Add Customer
+            {
+              selectedCustomer ? "Update Cusomter" : "Add Customer"
+            }
           </button>
         </form>
       </div>

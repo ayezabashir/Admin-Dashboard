@@ -161,7 +161,7 @@ const AddProducts = ({
             type="submit"
             className="w-full bg-black text-white dark:bg-white dark:text-black py-2 rounded-lg font-semibold"
           >
-            Add Product
+            {selectedProduct ? "Update Product" : "Add Product"}
           </button>
         </form>
       </div>
