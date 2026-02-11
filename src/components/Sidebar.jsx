@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import {
   RiDashboardLine,
   RiShoppingBag3Line,
@@ -10,9 +10,6 @@ import {
 } from "react-icons/ri";
 import { BiChevronDown } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
-import dark_logo from "/dark_logo.png";
-import light_logo from "/light_logo.png";
-import { themeContext } from "../context/themeContext";
 
 const sidebarItems = [
   {
@@ -56,13 +53,11 @@ const sidebarItems = [
 
 const Sidebar = () => {
   const location = useLocation();
-  const { mode } = useContext(themeContext);
   const [open, setOpen] = useState(true);
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const isSubRouteActive = (subTabs) =>
     subTabs?.some((tab) => location.pathname === tab.route);
-
   return (
     <aside
       className={`h-screen bg-white dark:bg-black border-r border-zinc-200 dark:border-zinc-800
@@ -70,16 +65,11 @@ const Sidebar = () => {
       ${open ? "w-64" : "w-20"}`}
     >
       <div className="flex items-center justify-between p-4">
-        <div
+        <h1
           className={`text-xl font-bold text-zinc-600 dark:text-zinc-300 ${open ? "block" : "hidden"}`}
         >
-          <img
-            width="50"
-            height="50"
-            src={mode === "dark" ? dark_logo : light_logo}
-            alt=""
-          />
-        </div>
+          Admin Dashboard
+        </h1>
         <button
           onClick={() => {
             setOpen(!open);
